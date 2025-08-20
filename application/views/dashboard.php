@@ -153,6 +153,12 @@
                 <div data-i18n="Analytics">Pengguna</div>
               </a>
             </li>
+            <li class="menu-item active">
+              <a href="<?=base_url('produk')?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                <div data-i18n="Analytics">Produk</div>
+              </a>
+            </li>
           </ul>
         </aside>
         <!-- / Menu -->
