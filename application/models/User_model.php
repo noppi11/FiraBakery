@@ -13,6 +13,11 @@ class User_model extends CI_Model {
         return $this->db->where('id_user', $id)->get($this->table)->row();
     }
 
+    public function getById($id_user)
+    {
+        return $this->db->get_where('user', ['id_user' => $id_user])->row();
+    }
+    
     public function insert($data) {
         return $this->db->insert($this->table, $data);
     }
@@ -23,5 +28,20 @@ class User_model extends CI_Model {
 
     public function delete($id) {
         return $this->db->where('id_user', $id)->delete($this->table);
+    }
+
+    public function check_login($username, $password)
+    {
+        // cari user berdasarkan username
+        $this->db->where('username', $username);
+        $user = $this->db->get($this->table)->row();
+
+        // jika user ditemukan dan password cocok
+        if ($user && password_verify($password, $user->password)) {
+            return $user;
+        }
+
+        // kalau gagal
+        return false;
     }
 }

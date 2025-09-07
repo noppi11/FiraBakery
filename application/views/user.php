@@ -37,7 +37,7 @@
                                             <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditUser<?= $user->id_user ?>">
                                                 <i class="bx bx-edit-alt me-1"></i> Edit
                                             </a>
-                                            <a class="dropdown-item" onClick="return confirm('Apakah kamu sungguh ingin menghapusnya?')" href="<?= site_url('user/delete/'.$user->id_user) ?>">
+                                            <a class="dropdown-item" onClick="return confirm('Apakah kamu sungguh ingin menghapusnya?')" href="<?= site_url('user_admin/delete/'.$user->id_user) ?>">
                                                 <i class="bx bx-trash me-1"></i> Delete
                                             </a>
                                         </div>
@@ -54,7 +54,7 @@
         <!-- Modal Tambah User -->
         <div class="modal fade" id="modalTambahUser" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
-                <form method="post" action="<?= site_url('user/save') ?>">
+                <form method="post" action="<?= site_url('user_admin/save') ?>">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Tambah User</h5>
@@ -93,7 +93,7 @@
         <?php foreach ($users as $user): ?>
             <div class="modal fade" id="modalEditUser<?= $user->id_user ?>" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog">
-                    <form method="post" action="<?= site_url('user/save') ?>">
+                    <form method="post" action="<?= site_url('user_admin/save') ?>">
                         <input type="hidden" name="id_user" value="<?= $user->id_user ?>">
                         <div class="modal-content">
                             <div class="modal-header">

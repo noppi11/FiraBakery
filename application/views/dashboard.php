@@ -148,9 +148,15 @@
               </a>
             </li>
             <li class="menu-item active">
-              <a href="<?=base_url('user')?>" class="menu-link">
+              <a href="<?=base_url('user_admin')?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-user-circle"></i>
                 <div data-i18n="Analytics">Pengguna</div>
+              </a>
+            </li>
+            <li class="menu-item active">
+              <a href="<?=base_url('kategori')?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                <div data-i18n="Analytics">Kategori</div>
               </a>
             </li>
             <li class="menu-item active">
@@ -159,6 +165,13 @@
                 <div data-i18n="Analytics">Produk</div>
               </a>
             </li>
+            <li class="menu-item active">
+              <a href="<?=base_url('auth/logout')?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-user-circle"></i>
+                <div data-i18n="Analytics">PLogout</div>
+              </a>
+            </li>
+            
           </ul>
         </aside>
         <!-- / Menu -->
