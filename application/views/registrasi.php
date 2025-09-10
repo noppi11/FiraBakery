@@ -131,7 +131,7 @@
                       </g>
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                  <span class="app-brand-text demo text-body fw-bolder">Fira Bakery</span>
                 </a>
               </div>
               <!-- /Logo -->
@@ -153,6 +153,10 @@
                 <div class="mb-3">
                   <label for="email" class="form-label">Nama</label>
                   <input type="text" class="form-control" id="email" name="nama" placeholder="Enter your name" />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter your name" />
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <label class="form-label" for="password">Password</label>

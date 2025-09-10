@@ -54,6 +54,7 @@ class Auth extends CI_Controller {
         $data = [
             'nama'     => $this->input->post('nama'),
             'username' => $this->input->post('username'),
+            'email' => $this->input->post('email'),
             'role'     => 'pembeli' // default role
         ];
 
