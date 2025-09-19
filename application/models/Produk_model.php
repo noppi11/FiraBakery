@@ -10,9 +10,20 @@ class Produk_model extends CI_Model {
         $this->db->select('produk.*, kategori.nama_kategori, g.gambar as foto_utama');
         $this->db->from('produk');
         $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
-        $this->db->join('(SELECT id_produk, gambar FROM gambar ORDER BY id_gambar ASC LIMIT 1) g', 'g.id_produk = produk.id_produk', 'left');
+        $this->db->join('(
+            SELECT g1.id_produk, g1.gambar
+            FROM gambar g1
+            JOIN (
+                SELECT id_produk, MIN(id_gambar) AS min_id
+                FROM gambar
+                GROUP BY id_produk
+            ) g2 ON g1.id_produk = g2.id_produk AND g1.id_gambar = g2.min_id
+        ) g', 'g.id_produk = produk.id_produk', 'left');
+        $this->db->limit($limit);
+    
         return $this->db->get()->result();
     }
+    
     
     
     public function get_by_kategori($id_kategori, $limit = 5) {

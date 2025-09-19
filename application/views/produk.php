@@ -30,14 +30,10 @@
                                 <td><?= $p->nama_produk ?></td>
                                 <td><?= $p->nama_kategori ?></td>
                                 <td><?= number_format($p->harga, 0, ',', '.') ?></td>
-                                <td><?= $p->deskripsi ?></td>
-                                <td>
-                                  <?php if ($p->foto_utama): ?>
-                                      <img src="<?= base_url($p->foto_utama) ?>" width="80">
-                                  <?php else: ?>
-                                      <span class="text-muted">Belum ada foto</span>
-                                  <?php endif; ?>
-                                </td>
+                                <td><?= strlen($p->deskripsi) > 50 ? substr($p->deskripsi, 0, 50) . '...' : $p->deskripsi ?></td>
+
+                                <td> <?php if ($p->foto_utama): ?> <img src="<?= base_url($p->foto_utama) ?>" width="80"> <?php else: ?> <span class="text-muted">Belum ada foto</span> <?php endif; ?> </td>
+
                                 
                                 <td>
                                     <div class="dropdown">
@@ -213,7 +209,7 @@
                   <button type="submit" class="btn btn-sm btn-primary">Update</button>
                 </form>
                 <!-- tombol hapus -->
-<a href="<?= site_url('gambar/delete/'.$g->id_gambar) ?>" 
+<a href="<?= site_url('foto/delete/'.$g->id_gambar) ?>" 
    onclick="return confirm('Yakin ingin menghapus gambar ini?')" 
    class="btn btn-sm btn-danger">Hapus</a>
               </div>
