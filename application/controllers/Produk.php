@@ -10,7 +10,7 @@ class Produk extends CI_Controller {
 
     public function index()
     {
-        $data['produk']   = $this->Produk_model->get_all();  // join ke kategori biar tampil nama_kategori
+        $data['produk']   = $this->Produk_model->get_all_for_admin();  // join ke kategori biar tampil nama_kategori
         $data['kategori'] = $this->Kategori_model->get_all(); // buat isi dropdown
             // bikin array gambar per produk
     $gambar = $this->Foto_model->get_all();
@@ -83,15 +83,19 @@ class Produk extends CI_Controller {
     } 
 
     public function kategori($id_kategori)
-{
-    // ambil kategori untuk slider
-    $data['kategori'] = $this->Kategori_model->get_all();
-
-    // ambil produk berdasarkan kategori
-    $data['produk'] = $this->Produk_model->get_by_kategori($id_kategori);
-
-    $this->template->load('user/template','user/main', $data);
-}
+    {
+        // ambil kategori untuk slider
+        $data['kategori'] = $this->Kategori_model->get_all();
+    
+        // ambil produk berdasarkan kategori
+        $data['produk'] = $this->Produk_model->get_by_kategori($id_kategori);
+    
+        // ambil random images (BIAR TIDAK ERROR)
+        $data['random_images'] = $this->Produk_model->get_random_images(6);
+    
+        $this->template->load('user/template','user/main', $data);
+    }
+    
 
 
     public function search()

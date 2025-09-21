@@ -53,10 +53,13 @@
                 <a href="#" class="search-switch"><img src="<?php echo base_url('');?>user/img/icon/search.png" alt=""></a>
                 <a href="#"><img src="<?php echo base_url('');?>user/img/icon/heart.png" alt=""></a>
             </div>
-            <div class="offcanvas__cart__item">
-                <a href="#"><img src="<?php echo base_url('');?>user/img/icon/cart.png" alt=""> <span>0</span></a>
-                <div class="cart__price">Cart: <span>$0.00</span></div>
-            </div>
+            <div class="header__top__right__cart">
+                                    <a href="<?= base_url('cart') ?>">
+                                        <img src="<?= base_url('user/img/icon/cart.png') ?>" alt="">
+                                        <span><?= $cart_header->total_qty ?? 0 ?></span>
+                                    </a>
+                                    <div class="cart__price">Cart: <span>Rp <?= number_format($cart_header->total_harga ?? 0, 0, ',', '.') ?></span></div>
+                                </div>
         </div>
         <div class="offcanvas__logo">
             <a href="./index.html"><img src="<?php echo base_url('');?>user/img/logo.png" alt="Fira Bakery"></a>

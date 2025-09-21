@@ -5,7 +5,7 @@ class Produk_model extends CI_Model {
 
     private $table = 'produk';
 
-    public function get_all($limit = 5)
+    public function get_all($limit = 8)
     {
         $this->db->select('produk.*, kategori.nama_kategori, g.gambar as foto_utama');
         $this->db->from('produk');
@@ -24,11 +24,44 @@ class Produk_model extends CI_Model {
         return $this->db->get()->result();
     }
     
+    public function get_all_for_admin()
+    {
+        $this->db->select('produk.*, kategori.nama_kategori, g.gambar as foto_utama');
+        $this->db->from('produk');
+        $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+        $this->db->join('(
+            SELECT g1.id_produk, g1.gambar
+            FROM gambar g1
+            JOIN (
+                SELECT id_produk, MIN(id_gambar) AS min_id
+                FROM gambar
+                GROUP BY id_produk
+            ) g2 ON g1.id_produk = g2.id_produk AND g1.id_gambar = g2.min_id
+        ) g', 'g.id_produk = produk.id_produk', 'left');
     
-    
-    public function get_by_kategori($id_kategori, $limit = 5) {
-        return $this->db->get_where('produk', ['id_kategori' => $id_kategori])->result();
+        return $this->db->get()->result();
     }
+    
+    
+    public function get_by_kategori($id_kategori)
+    {
+        $this->db->select('produk.*, kategori.nama_kategori, g.gambar as foto_utama');
+        $this->db->from('produk');
+        $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+        $this->db->join('(
+            SELECT g1.id_produk, g1.gambar
+            FROM gambar g1
+            JOIN (
+                SELECT id_produk, MIN(id_gambar) AS min_id
+                FROM gambar
+                GROUP BY id_produk
+            ) g2 ON g1.id_produk = g2.id_produk AND g1.id_gambar = g2.min_id
+        ) g', 'g.id_produk = produk.id_produk', 'left');
+        $this->db->where('produk.id_kategori', $id_kategori);
+    
+        return $this->db->get()->result();
+    }
+    
 
     public function countAllProduk($search = null, $kategori = null)
     {
@@ -51,33 +84,41 @@ class Produk_model extends CI_Model {
         $this->db->select('produk.*, kategori.nama_kategori, g.gambar as foto');
         $this->db->from('produk');
         $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
-        $this->db->join('(SELECT id_produk, gambar FROM gambar ORDER BY id_gambar ASC LIMIT 1) g', 'g.id_produk = produk.id_produk', 'left');
-
-        if (!empty($kategori)) {
-            $this->db->where('produk.id_kategori', $kategori);
-        }
-
+    
+        // Ambil 1 gambar pertama tiap produk
+        $this->db->join('(
+            SELECT g1.id_produk, g1.gambar as gambar
+            FROM gambar g1
+            JOIN (
+                SELECT id_produk, MIN(id_gambar) as min_id
+                FROM gambar
+                GROUP BY id_produk
+            ) g2 ON g1.id_produk = g2.id_produk AND g1.id_gambar = g2.min_id
+        ) g', 'g.id_produk = produk.id_produk', 'left');
+        
+    
+        // Filter pencarian
         if (!empty($search)) {
             $this->db->like('produk.nama_produk', $search);
         }
-
-        // Sorting
-        if ($sort == 'asc') {
-            $this->db->order_by('produk.nama_produk', 'ASC');
-        } elseif ($sort == 'desc') {
-            $this->db->order_by('produk.nama_produk', 'DESC');
-        } elseif ($sort == 'harga_asc') {
+        if (!empty($kategori)) {
+            $this->db->where('produk.id_kategori', $kategori);
+        }
+    
+        // Urutan
+        if ($sort == 'harga_asc') {
             $this->db->order_by('produk.harga', 'ASC');
         } elseif ($sort == 'harga_desc') {
             $this->db->order_by('produk.harga', 'DESC');
         } else {
             $this->db->order_by('produk.id_produk', 'DESC');
         }
-
+    
         $this->db->limit($limit, $start);
-
+    
         return $this->db->get()->result();
     }
+    
 
     public function get_random_images($limit = 6)
 {
@@ -143,13 +184,26 @@ public function getProdukFiltered($search = null, $id_kategori = null)
         return $this->db->get_where('gambar', ['id_produk' => $id_produk])->result();
     }
     
-    public function getRelated($id_kategori, $id_produk, $limit = 4)
-{
-    $this->db->where('id_kategori', $id_kategori);
-    $this->db->where('id_produk !=', $id_produk); // jangan tampilkan produk yg sama
-    $this->db->limit($limit);
-    return $this->db->get('produk')->result();
-}
+    public function getRelated($id_kategori, $id_produk)
+    {
+        $this->db->select('produk.*, kategori.nama_kategori, g.gambar as foto_utama');
+        $this->db->from('produk');
+        $this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+        $this->db->join('(
+            SELECT g1.id_produk, g1.gambar
+            FROM gambar g1
+            JOIN (
+                SELECT id_produk, MIN(id_gambar) AS min_id
+                FROM gambar
+                GROUP BY id_produk
+            ) g2 ON g1.id_produk = g2.id_produk AND g1.id_gambar = g2.min_id
+        ) g', 'g.id_produk = produk.id_produk', 'left');
+        $this->db->where('produk.id_kategori', $id_kategori);
+        $this->db->where('produk.id_produk !=', $id_produk); // exclude produk yang sedang dilihat
+    
+        return $this->db->get()->result();
+    }
+    
 
     // simpan produk ke cart
     public function addToCart($id_produk, $id_user, $qty = 1)

@@ -9,8 +9,8 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__links">
-                        <a href="./index.html">Home</a>
-                        <a href="./shop.html">Shop</a>
+                        <a href="<?=site_url('home')?>">Home</a>
+                        <a href="<?=site_url('produk/shop')?>">Shop</a>
                         <span>Sweet autumn leaves</span>
                     </div>
                 </div>
@@ -111,11 +111,12 @@
                 <?php foreach ($related as $r): ?>
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="<?= base_url('uploads/produk/'.$r->gambar) ?>">
-                    <div class="product__label">
-                        <span><?= $produk->nama_kategori ?></span>
-                    </div>
+            <div class="product__item__pic set-bg" data-setbg="<?= base_url($r->foto_utama) ?>">
+                <div class="product__label">
+                    <span><?= $r->nama_kategori ?></span>
                 </div>
+            </div>
+
                 <div class="product__item__text">
                     <h6><a href="<?= site_url('produk/detail/'.$r->id_produk) ?>">
                         <?= $r->nama_produk ?>

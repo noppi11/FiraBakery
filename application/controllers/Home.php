@@ -19,10 +19,10 @@ class Home extends CI_Controller {
 
         if ($id_kategori) {
             // produk per kategori
-            $data['produk'] = $this->Produk_model->get_by_kategori($id_kategori, 5);
+            $data['produk'] = $this->Produk_model->get_by_kategori($id_kategori, 8);
         } else {
             // kalau tidak pilih kategori → tampilkan semua produk
-            $data['produk'] = $this->Produk_model->get_all(5);
+            $data['produk'] = $this->Produk_model->get_all(8);
         }
 
         $data['id_kategori_aktif'] = $id_kategori;

@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="breadcrumb__links">
-                        <a href="./index.html">Home</a>
+                        <a href="<?=site_url('home')?>">Home</a>
                         <span>Shop</span>
                     </div>
                 </div>
@@ -60,22 +60,36 @@
 
             <div class="row">
                 <?php foreach ($produk as $p): ?>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="<?= base_url($p->foto) ?>">
-                            <div class="product__label">
-                                <span><?= $p->nama_kategori ?? 'Produk' ?></span>
-                            </div>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#"><?= $p->nama_produk ?></a></h6>
-                            <div class="product__item__price">Rp<?= number_format($p->harga, 0, ',', '.') ?></div>
-                            <div class="cart_add">
-                                <a href="<?= base_url('produk/add_to_cart//'.$p->id_produk) ?>">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="product__item">
+        <a href="<?= base_url('produk/detail/' . $p->id_produk) ?>">
+
+        <div class="product__item__pic set-bg" 
+             data-setbg="<?= !empty($p->foto) 
+                ? base_url($p->foto) 
+                : base_url('assets/img/no-image.png') ?>">
+            <div class="product__label">
+                <span><?= $p->nama_kategori ?? 'Produk' ?></span>
+            </div>
+        </div>
+        </a>
+        
+        <div class="product__item__text">
+            <h6>
+                <a href="<?= base_url('produk/detail/' . $p->id_produk) ?>">
+                    <?= htmlspecialchars($p->nama_produk) ?>
+                </a>
+            </h6>
+            <div class="product__item__price">
+                Rp<?= number_format($p->harga, 0, ',', '.') ?>
+            </div>
+            <div class="cart_add">
+                <a href="<?= base_url('produk/add_to_cart/'.$p->id_produk) ?>">Add to cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+
                 <?php endforeach; ?>
             </div>
 
