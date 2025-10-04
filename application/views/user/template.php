@@ -7,7 +7,7 @@
     <meta name="keywords" content="Cake, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cake | Template</title>
+    <title>Fira Bakery & Cake</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
@@ -35,6 +35,34 @@
     align-items: center;     /* horizontal */
     height: 100%; /* pastikan col punya tinggi */
 }
+.categories__item__icon span {
+    font-size: 48px; /* ubah sesuai selera, misal 60px kalau mau gede */
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Untuk versi desktop (header utama) */
+.header__logo img {
+    max-height: 60px;   /* atur sesuai kebutuhan */
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Untuk versi mobile / offcanvas */
+.offcanvas__logo img {
+    max-height: 50px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+.footer__logo img {
+    max-width: 150px;   /* atur sesuai keinginan */
+    height: auto;
+    display: block;
+    margin: 0 auto;     /* agar tetap center */
+}
+
 
     </style>
 </head>
@@ -62,7 +90,7 @@
                                 </div>
         </div>
         <div class="offcanvas__logo">
-            <a href="./index.html"><img src="<?php echo base_url('');?>user/img/logo.png" alt="Fira Bakery"></a>
+            <a href="./index.html"><img src="<?php echo base_url('');?>user/img/logo (5).png" alt="Fira Bakery"></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__option">
@@ -105,7 +133,7 @@
                                 </ul>
                             </div>
                             <div class="header__logo">
-                                <a href="./index.html"><img src="<?php echo base_url('');?>user/img/logo.png" alt=""></a>
+                                <a href="./index.html"><img src="<?php echo base_url('');?>user/img/logo (5).png" alt=""></a>
                             </div>
                             <div class="header__top__right">
                                 <div class="header__top__right__links">
@@ -192,27 +220,26 @@
                     <div class="footer__widget">
                         <h6>JAM KERJA</h6>
                         <ul>
-                            <li>Senin - Jumat: 08:00 am – 08:30 pm</li>
-                            <li>Sabtu: 10:00 am – 16:30 pm</li>
-                            <li>Minggu: 10:00 am – 16:30 pm</li>
+                            <li>Setiap hari: 08:00 am – 08:30 pm</li>
+
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__logo">
-                            <a href="#"><img src="<?php echo base_url('');?>user/img/footer-logo.png" alt=""></a>
-                        </div>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore dolore magna aliqua.</p>
-                        <div class="footer__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
+    <div class="footer__about">
+        <div class="footer__logo">
+            <a href="#"><img src="<?= base_url('user/img/footer-logo (2).png') ?>" alt=""></a>
+        </div>
+        <p>Fira Bakery adalah toko roti lokal yang menghadirkan aneka pilihan roti, pastry, dan kue buatan tangan yang segar setiap hari. </p>
+        <div class="footer__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-TikTok"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-youtube-play"></i></a>
+        </div>
+    </div>
+</div>
+
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="footer__newslatter">
                         <h6>Subscribe</h6>
@@ -225,26 +252,7 @@
                 </div>
             </div>
         </div>
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                        <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                      </p>
-                  </div>
-                  <div class="col-lg-5">
-                    <div class="copyright__widget">
-                        <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Site Map</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </footer>
 <!-- Footer Section End -->

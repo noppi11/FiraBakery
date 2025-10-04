@@ -71,7 +71,7 @@ public function transaksi()
     $this->Produk_model->clearCart($id_user);
 
     // redirect ke WhatsApp
-    $no_wa = "0882003365921"; // nomor WA pemilik toko
+    $no_wa = "0281326502929"; // nomor WA pemilik toko
     redirect("https://wa.me/{$no_wa}?text=" . $pesan);
 }
 

@@ -23,9 +23,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="about__video set-bg" data-setbg="<?php echo base_url('');?>user/img/about-video.jpg">
-                        <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1"
-                        class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                    <div class="about__video set-bg" data-setbg="<?php echo base_url('');?>user/img/about-vidio.jpeg">
+
                     </div>
                 </div>
             </div>
@@ -35,10 +34,10 @@
                     <div class="about__text text-center">
                         <div class="section-title">
                             <span>Tentang Fira Bakery</span>
-                            <h2>Cakes and bakes from the house of Queens!</h2>
+                            <h2>Rumahnya roti dan kue yang lezat!</h2>
                         </div>
-                        <p>The "Cake Shop" is a Jordanian Brand that started as a small family business. 
-                        The owners are Dr. Iyad Sultan and Dr. Sereen Sharabati, supported by a staff of 80 employees.</p>
+                        <p>Fira Bakery adalah toko roti lokal yang menghadirkan aneka pilihan roti, pastry, dan kue buatan tangan yang segar setiap hari. Dengan resep turun-temurun dan sentuhan modern, kami berkomitmen untuk menyajikan produk yang tidak hanya lezat, tapi juga sehat dan penuh cinta.
+Temukan favoritmu — mulai dari sourdough artisan hingga kue ulang tahun custom — semua dibuat dengan kualitas dan kehangatan khas rumah.</p>
                     </div>
                 </div>
             </div>

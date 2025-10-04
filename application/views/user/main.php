@@ -116,9 +116,8 @@
                     </div>
                 </div>
             </div>
-            <div class="class__video set-bg" data-setbg="<?php echo base_url('');?>user/img/class-video.jpg">
-                <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1"
-                class="play-btn video-popup"><i class="fa fa-play"></i></a>
+            <div class="class__video set-bg" data-setbg="<?php echo base_url('');?>user/img/class-vidio.jpeg">
+
             </div>
         </div>
     </section>

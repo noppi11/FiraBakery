@@ -28,7 +28,7 @@
                             <h6>Alamat</h6>
                             <ul>
                                 <li><span class="icon_pin_alt"></span>
-                                    <p>Jl. Merdeka No. 10, Jakarta Pusat, Indonesia</p>
+                                    <p>Jl. Karangpandan-Ngargoyoso No.Km.3, Sidi, Puntukrejo, Kec. Ngargoyoso, Kabupaten Karanganyar, Jawa Tengah 57793</p>
                                 </li>
                             </ul>
                         </div>
@@ -38,20 +38,30 @@
                             <h6>Kontak</h6>
                             <ul>
                                 <li><span class="icon_headphones"></span>
-                                    <p>+62 812-3456-7890</p>
+                                    <p>+62 812-5873-5121</p>
                                 </li>
+                                <li><span class="icon_headphones"></span>
+                                    <p>+62 813-2650-2929</p>
+                                </li>
+                                
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="contact__address__item">
-                            <h6>Email & Sosial Media</h6>
+                            <h6>Sosial Media</h6>
                             <ul>
-                                <li><span class="icon_mail_alt"></span>
-                                    <p>support@namabisnis.com</p>
+                                <li><span></span>
+                                    <p>facebook: @firabakery</p>
                                 </li>
                                 <li><span class="icon_social_facebook"></span>
-                                    <p>@namabisnis</p>
+                                    <p>instagram: @firabakery_8</p>
+                                </li>
+                                <li><span class="icon_social_facebook"></span>
+                                    <p>youtube: @firabakery</p>
+                                </li>
+                                <li><span class="icon_social_facebook"></span>
+                                    <p>tiktok: @firabakery</p>
                                 </li>
                             </ul>
                         </div>
@@ -65,7 +75,7 @@
                         <h3>Contak dengan kita</h3>
                         <ul>
                             <li>Pelayanan kami selalu tersedia</li>
-                            <li>Setiap Hari: 5:00am to 9:00pm</li>
+                            <li>Setiap Hari: 8:00am to 8:30pm</li>
                             
                         </ul>
                         <img src="img/cake-piece.png" alt="">
@@ -99,7 +109,7 @@
                 let email = document.getElementById("email").value;
                 let message = document.getElementById("message").value;
 
-                let phone = "6281234567890"; // Ganti dengan nomor WA kamu (pakai format internasional tanpa +)
+                let phone = "6281326502929"; // Ganti dengan nomor WA kamu (pakai format internasional tanpa +)
                 let text = `Halo, saya *${name}* (${email}) ingin bertanya:%0A${message}`;
 
                 let url = `https://wa.me/${phone}?text=${text}`;
